@@ -5,17 +5,9 @@
 <section class="section-5">
     <div class="container my-5">
         <div class="py-lg-2">&nbsp;</div>
-        @if(Session::has('success'))
-            <div class="alert alert-success">
-            <p class="mb-0 pb-0">{{ Session::get('success') }}</p>
-            </div>
-        @endif
 
-        @if(Session::has('error'))
-            <div class="alert alert-danger">
-                <p class="mb-0 pb-0">{{ Session::get('error') }}</p>
-            </div>
-        @endif
+        @include('front.message')
+
         <div class="row d-flex justify-content-center">
             <div class="col-md-5">
                 <div class="card shadow border-0 p-5">
