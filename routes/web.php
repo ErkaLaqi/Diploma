@@ -1,10 +1,17 @@
 <?php
 
+use App\Http\Controllers\JobsController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\AccountController;
 
 Route::get('/', [HomeController::class,'index'])->name('home');
+
+Route::get('/jobs', [JobsController::class,'index'])->name('jobs');
+Route::get('/jobs/detail/{id}', [JobsController::class,'detail'])->name('jobDetail');
+Route::post('/apply-job', [JobsController::class,'applyJob'])->name('applyJob');
+Route::post('/saved-job', [JobsController::class, 'savedJob'])->name('savedJob');
+
 
 
 Route::group(['account'], function (){
@@ -28,6 +35,10 @@ Route::group(['account'], function (){
         Route::get('/my-jobs/edit/{jobId}', [AccountController::class,'editJobs'])->name('account.editJobs');
         Route::post('/update-job/{jobId}', [AccountController::class,'updateJob'])->name('account.updateJob');
         Route::post('/delete-job', [AccountController::class,'deleteJob'])->name('account.deleteJob');
+        Route::get('/my-job-applications', [AccountController::class,'myJobApplications'])->name('account.myJobApplications');
+        Route::post('/remove-job-application', [AccountController::class,'removeJobs'])->name('account.removeJobs');
+        Route::get('/fetch-saved-jobs', [AccountController::class,'fetchSavedJobs'])->name('account.fetchSavedJobs');
+        Route::post('/remove-saved-job', [AccountController::class,'removeSavedJob'])->name('account.removeSavedJob');
 
     });
 });

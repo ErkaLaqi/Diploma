@@ -7,7 +7,7 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class=" rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                             <li class="breadcrumb-item active">Account Settings</li>
                         </ol>
                     </nav>
@@ -52,7 +52,7 @@
                                                         <div class="info1">{{ $job->jobType->name }} . {{ $job->location }}</div>
                                                     </td>
                                                     <td>{{ \Carbon\Carbon::parse($job->created_at)->format('d M, Y') }}</td>
-                                                    <td>130 Applications</td>
+                                                    <td>{{ $job->applications->count() }} Applications</td>
                                                     <td>
                                                         @if($job->status == 1)
                                                             <div class="job-status text-capitalize">Active</div>
@@ -67,7 +67,7 @@
                                                                 <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                             </button>
                                                             <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li><a class="dropdown-item" href="job-detail.html"> <i class="fa fa-eye" aria-hidden="true"></i> View</a></li>
+                                                                <li><a class="dropdown-item" href="{{ route('jobDetail', $job->id) }}"> <i class="fa fa-eye" aria-hidden="true"></i> View</a></li>
                                                                 <li><a class="dropdown-item" href="{{ route('account.editJobs', $job->id) }}"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a></li>
                                                                 <li><a class="dropdown-item" href="#" onclick="deleteJob({{ $job->id }})"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
                                                             </ul>
