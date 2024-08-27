@@ -16,9 +16,10 @@
                 <div class="col-md-4 col-lg-3 sidebar mb-4">
                     <form action="" name="searchFrom" id="searchFrom">
                     <div class="card border-0 shadow p-4">
+                        <h2 style="text-align: center">Keywords</h2>
                         <div class="mb-4">
-                            <h2>Keywords</h2>
-                            <input value="{{ Request::get('keyword') }}" type="text" name="keywords" id="keywords" placeholder="Keywords" class="form-control">
+                            <h2>Title</h2>
+                            <input value="{{ Request::get('keyword') }}" type="text" name="keywords" id="keywords" placeholder="Title" class="form-control">
                         </div>
 
                         <div class="mb-4">
@@ -87,7 +88,7 @@
                                             <div class="card border-0 p-3 shadow mb-4">
                                                 <div class="card-body">
                                                     <h3 class="border-0 fs-5 pb-2 mb-0">{{ $job->title }}</h3>
-                                                    <p>{{ Str::words($job->description, $words=10, '...') }}</p>
+                                                    <p>{{ Str::words(strip_tags($job->description), $words=10, '...') }}</p>
                                                     <div class="bg-light p-3 border">
                                                         <p class="mb-0">
                                                             <span class="fw-bolder"><i class="fa fa-map-marker"></i></span>

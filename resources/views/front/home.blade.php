@@ -84,7 +84,7 @@
                                                 <h3 class="border-0 fs-5 pb-2 mb-0">{{ $featuredJob->title }}</h3>
 
                                                 {{--<p>We are in need of a {{ $featuredJob->title }} for our company.</p>--}}
-                                                <p>{{ Str::words($featuredJob->description, 5) }}</p>
+                                                <p>{{ Str::words(strip_tags($featuredJob->description), 5) }}</p>
 
                                                 <div class="bg-light p-3 border">
                                                     <p class="mb-0">
@@ -135,7 +135,7 @@
                                                 <h3 class="border-0 fs-5 pb-2 mb-0">{{ $latestJob->title }}</h3>
 
                                                 {{--<p>We are in need of a {{ $latestJob->title }} for our company.</p>--}}
-                                                <p>{{ Str::words($latestJob->description, 5) }}</p>
+                                                <p>{{ Str::words(strip_tags($latestJob->description), 5) }}</p>
 
                                                 <div class="bg-light p-3 border">
                                                     <p class="mb-0">
