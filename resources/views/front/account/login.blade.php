@@ -12,7 +12,7 @@
             <div class="col-md-5">
                 <div class="card shadow border-0 p-5">
                     <h1 class="h3">Login</h1>
-                    <form action="{{ route('account.authenticate') }}" method="post">
+                    <form action="{{ route('account.authenticate') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="email" class="mb-2">Email</label><span style="color: red !important; display: inline; float: none;">*</span>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="justify-content-between d-flex">
                             <button class="btn btn-primary mt-2">Login</button>
-                            <a href="forgot-password.html" class="mt-3">Forgot Password?</a>
+                            <a href="{{ route('account.forgotPassword') }}" class="mt-3">Forgot Password?</a>
                         </div>
                     </form>
                 </div>

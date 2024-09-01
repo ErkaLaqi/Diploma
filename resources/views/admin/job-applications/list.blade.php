@@ -8,7 +8,7 @@
                     <nav aria-label="breadcrumb" class=" rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Users</li>
+                            <li class="breadcrumb-item active">Job Applications</li>
                         </ol>
                     </nav>
                 </div>
@@ -18,62 +18,52 @@
                     @include('admin.sidebar')
                 </div>
                 <div class="col-lg-9">
-                    {{--@include('front.message')--}}
+                    @include('front.message')
                     <div class="card border-0 shadow mb-4">
                         <div class="card-body card-form">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <h3 class="fs-4 mb-1">Users List</h3>
+                                    <h3 class="fs-4 mb-1">Job Applications List</h3>
                                 </div>
-
                             </div>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class="info1">
                                     <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Firstname</th>
-                                        <th scope="col">Lastname</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Mobile No</th>
+                                        <th scope="col">Job Title</th>
+                                        <th scope="col">Applicants</th>
+                                        <th scope="col">Employer</th>
+                                        <th scope="col">Applied Date</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody class="border-0">
-
-                                    @if($users->isNotEmpty())
-                                        @foreach($users as $user)
-                                            <tr class="active">
-                                                <td>{{$user->id}}</td>
+                                    @if($applications->isNotEmpty())
+                                        @foreach($applications as $application)
+                                            <tr>
                                                 <td>
-                                                    <div class="job-name fw-500">{{ $user->name }}</div>
-                                                </td>
+                                                    <p>{{ $application->job->title }}</p>
+                                                <td>{{ ucfirst($application->user->name) }} {{ucfirst($application->user->lastname)}}</td>
+                                                <td>{{ ucfirst($application->employer->name) }} {{ucfirst($application->employer->lastname)}}</td>
+                                                <td>{{ Carbon\Carbon::parse($application->applied_date)->format('d M,Y') }}</td>
+                                                <td></td>
                                                 <td>
-                                                    <div class="job-name fw-500">{{ $user->lastname }}</div>
-                                                </td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>{{ $user->mobile }}</td>
-                                                <td>
-                                                    <div class="action-dots float-end">
-                                                        <button href="#" class=" btn" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                                    <div class="float-left">
+                                                        <button class="btn btn-danger btn-sm" onclick="deleteJobApplication({{ $application->id }})">
+                                                            <i class="fa fa-trash" aria-hidden="true"></i> Delete
                                                         </button>
-                                                        <ul class="dropdown-menu dropdown-menu-end">
-                                                            <li><a class="dropdown-item" href=" {{ route('admin.users.edit', $user->id) }} "><i class="fa fa-edit" aria-hidden="true"></i> Edit</a></li>
-                                                            <li><a class="dropdown-item" href="#" onclick="deleteUser({{ $user->id }})"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
-                                                        </ul>
                                                     </div>
+
+
                                                 </td>
                                             </tr>
                                         @endforeach
-
                                     @endif
                                     </tbody>
-
                                 </table>
                             </div>
                             <div>
-                                {{ $users->links() }}
+                                {{ $applications->links() }}
                             </div>
                         </div>
 
@@ -88,7 +78,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script type="text/javascript">
-        function deleteUser(id){
+        function deleteJobApplication(id){
             Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",
@@ -101,7 +91,7 @@
                 if (result.isConfirmed) {
                     // AJAX request to delete the job
                     $.ajax({
-                        url : '{{ route("admin.users.destroy") }}',
+                        url : '{{ route("admin.jobApplications.destroy") }}',
                         type : 'DELETE',
                         data: {id: id},
                         dataType: 'JSON',
@@ -109,11 +99,11 @@
                             // Show the success message
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "User has been deleted.",
+                                text: "Job application has been deleted.",
                                 icon: "success"
                             }).then(() => {
                                 // Redirect after deletion
-                                window.location.href = '{{ route("admin.users") }}';
+                                window.location.href = '{{ route("admin.jobApplications") }}';
                             });
                         }
                     });

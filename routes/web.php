@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\JobApplicationController;
 use App\Http\Controllers\admin\JobController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\JobsController;
@@ -15,6 +16,10 @@ Route::get('/jobs/detail/{id}', [JobsController::class,'detail'])->name('jobDeta
 Route::post('/apply-job', [JobsController::class,'applyJob'])->name('applyJob');
 Route::post('/saved-job', [JobsController::class, 'savedJob'])->name('savedJob');
 
+Route::get('/forgot-password', [AccountController::class,'forgotPassword'])->name('account.forgotPassword');
+Route::post('/process-forgot-password', [AccountController::class,'processForgotPassword'])->name('account.processForgotPassword');
+Route::get('/reset-password/{token}', [AccountController::class,'resetPassword'])->name('account.resetPassword');
+Route::post('/process-reset-password', [AccountController::class,'processResetPassword'])->name('account.processResetPassword');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'checkRole'], function () {
     Route::get('/dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
@@ -23,7 +28,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkRole'], function () {
     Route::put('/users/{id}', [UserController::class,'update'])->name('admin.users.update');
     Route::delete('/users', [UserController::class,'destroy'])->name('admin.users.destroy');
     Route::get('/jobs', [JobController::class,'index'])->name('admin.jobs');
-
+    Route::get('/jobs/edit/{id}', [JobController::class,'edit'])->name('admin.jobs.edit');
+    Route::put('/jobs/{id}', [JobController::class,'update'])->name('admin.jobs.update');
+    Route::delete('/jobs', [JobController::class,'destroy'])->name('admin.jobs.destroy');
+    Route::get('/job-applications', [JobApplicationController::class,'index'])->name('admin.jobApplications');
+    Route::delete('/job-applications', [JobApplicationController::class,'destroy'])->name('admin.jobApplications.destroy');
 });
 
 Route::group(['prefix' => 'account'], function (){

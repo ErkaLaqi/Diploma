@@ -7,8 +7,8 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class=" rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Jobs</li>
                         </ol>
                     </nav>
                 </div>
@@ -18,17 +18,13 @@
                     @include('admin.sidebar')
                 </div>
                 <div class="col-lg-9">
-                    {{--@include('front.message')--}}
+                    @include('front.message')
                     <div class="card border-0 shadow mb-4">
                         <div class="card-body card-form">
                             <div class="d-flex justify-content-between">
                                 <div>
                                     <h3 class="fs-4 mb-1">Jobs List</h3>
                                 </div>
-                                <div style="margin-top: -10px;">
-                                    <a href="#" class="btn btn-primary">Create Job</a>
-                                </div>
-
                             </div>
                             <div class="table-responsive">
                                 <table class="table">
@@ -38,6 +34,7 @@
                                         <th scope="col">Title</th>
                                         <th scope="col">Created By</th>
                                         <th scope="col">Created At</th>
+                                        <th scope="col">Status</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                     </thead>
@@ -52,6 +49,14 @@
                                                    </td>
                                                    <td>{{ ucfirst($job->user->name) }} {{ucfirst($job->user->lastname)}}</td>
                                                    <td>{{ Carbon\Carbon::parse($job->created_at)->format('d M,Y') }}</td>
+                                                   <td>
+                                                       @if($job->status == 1)
+                                                           <p class="text-success">Active</p>
+                                                       @else
+                                                           <p class="text-danger">Blocked</p>
+                                                       @endif
+                                                   </td>
+
                                                    <td></td>
                                                    <td>
                                                        <div class="action-dots">
@@ -59,8 +64,8 @@
                                                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                            </button>
                                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                               <li><a class="dropdown-item" href="#"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a></li>
-                                                               <li><a class="dropdown-item" href="#"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
+                                                               <li><a class="dropdown-item" href="{{ route('admin.jobs.edit', $job->id) }}"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a></li>
+                                                               <li><a class="dropdown-item" onclick="deleteJob({{ $job->id }})" href="javascript:void(0);"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
                                                            </ul>
                                                        </div>
                                                    </td>
@@ -86,7 +91,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script type="text/javascript">
-        function deleteUser(id){
+        function deleteJob(id){
             Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",
@@ -99,7 +104,7 @@
                 if (result.isConfirmed) {
                     // AJAX request to delete the job
                     $.ajax({
-                        url : '{{ route("admin.users.destroy") }}',
+                        url : '{{ route("admin.jobs.destroy") }}',
                         type : 'DELETE',
                         data: {id: id},
                         dataType: 'JSON',
@@ -107,11 +112,11 @@
                             // Show the success message
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "User has been deleted.",
+                                text: "Job has been deleted.",
                                 icon: "success"
                             }).then(() => {
                                 // Redirect after deletion
-                                window.location.href = '{{ route("admin.users") }}';
+                                window.location.href = '{{ route("admin.jobs") }}';
                             });
                         }
                     });
