@@ -22,13 +22,13 @@ class JobApplicationController extends Controller
         $jobApplication = JobApplication::find($id);
 
         if($jobApplication == null){
-            session()->flash('error', 'Either job application deleted or not found!');
+            session()->flash('error', 'Aplikimi për punë është fshirë ose nuk u gjet');
             return response()->json([
                 'status'=>false,
             ]);
         }
         $jobApplication->delete();
-        session()->flash('success', 'Job application deleted successfully!');
+        session()->flash('success', 'Aplikimi për punë u fshi me sukses!');
         return response()->json([
             'status'=>true,
         ]);

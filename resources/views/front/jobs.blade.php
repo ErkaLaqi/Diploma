@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 col-md-10 ">
-                    <h2>Find Jobs</h2>
+                    <h2>Gjej Pune</h2>
                 </div>
                 <div class="col-6 col-md-2">
 
@@ -16,21 +16,21 @@
                 <div class="col-md-4 col-lg-3 sidebar mb-4">
                     <form action="" name="searchFrom" id="searchFrom">
                     <div class="card border-0 shadow p-4">
-                        <h2 style="text-align: center">Keywords</h2>
+                        <h2 style="text-align: center">Fjale Kyce</h2>
                         <div class="mb-4">
-                            <h2>Title</h2>
-                            <input value="{{ Request::get('keyword') }}" type="text" name="keywords" id="keywords" placeholder="Title" class="form-control">
+                            <h2>Titulli</h2>
+                            <input value="{{ Request::get('keyword') }}" type="text" name="keywords" id="keywords" placeholder="Titulli i punes" class="form-control">
                         </div>
 
                         <div class="mb-4">
-                            <h2>Location</h2>
-                            <input value="{{ Request::get('location') }}" type="text" name="location" id="location" placeholder="Location" class="form-control">
+                            <h2>Vendodhja</h2>
+                            <input value="{{ Request::get('location') }}" type="text" name="location" id="location" placeholder="Vendodhja" class="form-control">
                         </div>
 
                         <div class="mb-4">
-                            <h2>Category</h2>
+                            <h2>Kategoria</h2>
                             <select name="category" id="category" class="form-control">
-                                <option value="">Select a Category</option>
+                                <option value="">Zgjidh nje kategori</option>
                            @if($categories)
                                @foreach($categories as $category)
                                         <option {{ (Request::get('category') == $category->id) ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="mb-4">
-                            <h2>Job Type</h2>
+                            <h2>Tipi i punes</h2>
                             @if($jobTypes)
                                 @foreach($jobTypes as $jobType)
                                     <div class="form-check mb-2">
@@ -53,27 +53,27 @@
                         </div>
 
                         <div class="mb-4">
-                            <h2>Experience</h2>
+                            <h2>Eksperienca</h2>
                             <select name="experience" id="experience" class="form-control">
-                                <option value="">Select Experience</option>
+                                <option value="">Zgjidh numrin e viteve te eksperiences</option>
 {{--
                                 <option value="0" {{ (Request::get('experience') == 0) ? 'selected' : '' }}>No experience/Intern</option>
 --}}
-                                <option value="1" {{ (Request::get('experience') == 1) ? 'selected' : '' }}>1 Year</option>
-                                <option value="2"{{ (Request::get('experience') == 2) ? 'selected' : '' }}>2 Years</option>
-                                <option value="3" {{ (Request::get('experience') == 3) ? 'selected' : '' }}>3 Years</option>
-                                <option value="4" {{ (Request::get('experience') == 4) ? 'selected' : '' }}>4 Years</option>
-                                <option value="5" {{ (Request::get('experience') == 5) ? 'selected' : '' }}>5 Years</option>
-                                <option value="6" {{ (Request::get('experience') == 6) ? 'selected' : '' }}>6 Years</option>
-                                <option value="7" {{ (Request::get('experience') == 7) ? 'selected' : '' }}>7 Years</option>
-                                <option value="8" {{ (Request::get('experience') == 8) ? 'selected' : '' }}>8 Years</option>
-                                <option value="9" {{ (Request::get('experience') == 9) ? 'selected' : '' }}>9 Years</option>
-                                <option value="10" {{ (Request::get('experience') == 10) ? 'selected' : '' }}>10 Years</option>
-                                <option value="10_plus" {{ (Request::get('experience') == '10_plus') ? 'selected' : '' }} >10+ Years</option>
+                                <option value="1" {{ (Request::get('experience') == 1) ? 'selected' : '' }}>1 Vit</option>
+                                <option value="2"{{ (Request::get('experience') == 2) ? 'selected' : '' }}>2 Vite</option>
+                                <option value="3" {{ (Request::get('experience') == 3) ? 'selected' : '' }}>3 Vite</option>
+                                <option value="4" {{ (Request::get('experience') == 4) ? 'selected' : '' }}>4 Vite</option>
+                                <option value="5" {{ (Request::get('experience') == 5) ? 'selected' : '' }}>5 Vite</option>
+                                <option value="6" {{ (Request::get('experience') == 6) ? 'selected' : '' }}>6 Vite</option>
+                                <option value="7" {{ (Request::get('experience') == 7) ? 'selected' : '' }}>7 Vite</option>
+                                <option value="8" {{ (Request::get('experience') == 8) ? 'selected' : '' }}>8 Vite</option>
+                                <option value="9" {{ (Request::get('experience') == 9) ? 'selected' : '' }}>9 Vite</option>
+                                <option value="10" {{ (Request::get('experience') == 10) ? 'selected' : '' }}>10 Vite</option>
+                                <option value="10_plus" {{ (Request::get('experience') == '10_plus') ? 'selected' : '' }} >10+ Vite</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search">  Search</i></button>
-                        <a href="{{ route("jobs") }}" class="btn btn-secondary mt-3">Reset</a>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search">  Kerko</i></button>
+                        <a href="{{ route("jobs") }}" class="btn btn-secondary mt-3">Rifresko</a>
 
                     </div>
                     </form>
@@ -101,18 +101,18 @@
                                                         @if($job->experience == 1)
                                                             <p class="mb-0">
                                                                 <span class="fw-bolder"><i class="fa fa-briefcase"></i></span>
-                                                                <span class="ps-1">{{ $job->experience }} year of experience</span>
+                                                                <span class="ps-1">{{ $job->experience }} vite eksperience</span>
                                                             </p>
 
                                                         @elseif($job->experience > 1)
                                                             <p class="mb-0">
                                                                 <span class="fw-bolder"><i class="fa fa-briefcase"></i></span>
-                                                                <span class="ps-1">{{ $job->experience }} years of experience</span>
+                                                                <span class="ps-1">{{ $job->experience }} vite eksperience</span>
                                                             </p>
                                                         @else
                                                             <p class="mb-0">
                                                                 <span class="fw-bolder"><i class="fa fa-briefcase"></i></span>
-                                                                <span class="ps-1">{{ $job->experience }} years of experience</span>
+                                                                <span class="ps-1">{{ $job->experience }} vite eksperience</span>
                                                             </p>
                                                         @endif
 
@@ -126,7 +126,7 @@
                                                     </div>
 
                                                     <div class="d-grid mt-3">
-                                                        <a href="{{ route('jobDetail', $job->id ) }}" class="btn btn-primary btn-lg">Details</a>
+                                                        <a href="{{ route('jobDetail', $job->id ) }}" class="btn btn-primary btn-lg">Detajet</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -136,7 +136,7 @@
                                             {{ $jobs->withQueryString()->links() }}
                                         </div>
                                 @else
-                                    <div class="col-md-12">Jobs not found!</div>
+                                    <div class="col-md-12">Njoftimi nuk u gjend!</div>
                                 @endif
 
 

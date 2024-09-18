@@ -7,7 +7,7 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class=" rounded-3 p-3">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('jobs') }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp;Back to Jobs</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('jobs') }}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Njoftime pune</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -45,14 +45,14 @@
                         </div>
                         <div class="descript_wrap white-bg">
                             <div class="single_wrap">
-                                <h4>Job description</h4>
+                                <h4>Pershkrimi i punes</h4>
                                 {!! nl2br($job->description) !!}
                             </div>
                             <div class="single_wrap">
 
                                 @if(!empty($job->responsibility))
                                     <div class="single_wrap">
-                                    <h4>Responsibility</h4>
+                                    <h4>Pergjegjesite</h4>
                                     {!! nl2br($job->responsibility) !!}
                                     </div>
                                 @endif
@@ -61,7 +61,7 @@
                             <div class="single_wrap">
                                 @if(!empty($job->qualifications))
                                     <div class="single_wrap">
-                                    <h4>Qualifications</h4>
+                                    <h4>Kualifikimet</h4>
                                     {!! nl2br($job->qualifications) !!}
                                     </div>
 
@@ -71,7 +71,7 @@
                             <div class="single_wrap">
                                 @if(!empty($job->benefits))
                                     <div class="single_wrap">
-                                    <h4>Benefits</h4>
+                                    <h4>Benefitet</h4>
                                     {!! nl2br($job->benefits) !!}
                                     </div>
                                 @endif
@@ -80,14 +80,14 @@
                             <div class="border-bottom"></div>
                             <div class="pt-3 text-end">
                                 @if(Auth::check())
-                                    <a href="#" onclick="savedJob({{ $job->id }})" class="btn btn-secondary">Save</a>
+                                    <a href="#" onclick="savedJob({{ $job->id }})" class="btn btn-secondary">Ruaj</a>
                                 @else
-                                    <a href="javascript:void(0);" class="btn btn-secondary disabled">Login to Save</a>
+                                    <a href="javascript:void(0);" class="btn btn-secondary disabled">Hyr per te ruajtur njoftimin</a>
                                 @endif
                                 @if(Auth::check())
-                                    <a href="#" onclick="applyJob({{ $job->id }})" class="btn btn-primary">Apply</a>
+                                    <a href="#" onclick="applyJob({{ $job->id }})" class="btn btn-primary">Apliko</a>
                                 @else
-                                    <a href="javascript:void(0);" class="btn btn-primary disabled">Login to Apply</a>
+                                    <a href="javascript:void(0);" class="btn btn-primary disabled">Hyr per te aplikuar</a>
                                 @endif
 
                             </div>
@@ -103,7 +103,7 @@
 
                                     <div class="jobs_conetent">
                                         <a href="#">
-                                            <h4>Applicants</h4>
+                                            <h4>Aplikantet</h4>
                                         </a>
 
                                     </div>
@@ -115,10 +115,10 @@
                         <div class="descript_wrap white-bg">
                             <table class="table table-striped">
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Emri</th>
                                     <th>Email</th>
-                                    <th>Mobile No</th>
-                                    <th>Applied Date</th>
+                                    <th>Numri telefonit</th>
+                                    <th>Data e aplikimit</th>
                                 </tr>
                                 @if($applications->isNotEmpty())
                                     @foreach($applications as $application)
@@ -131,7 +131,7 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="3" class="text-center">No Applications</td>
+                                        <td colspan="3" class="text-center">Asnje aplikim</td>
                                     </tr>
                                 @endif
 
@@ -145,19 +145,19 @@
                     <div class="card shadow border-0">
                         <div class="job_sumary">
                             <div class="summery_header pb-1 pt-4">
-                                <h3>Job Summary</h3>
+                                <h3>Permbledhje rreth njoftimit te punes</h3>
                             </div>
                             <div class="job_content pt-3">
                                 <ul>
-                                    <li>Published on: <span>{{ \Carbon\Carbon::parse($job->created_at)->format('d M, Y') }}</span></li>
-                                    <li>Vacancy: <span>{{ $job->vacancy }}</span></li>
+                                    <li>Publikuar me: <span>{{ \Carbon\Carbon::parse($job->created_at)->format('d M, Y') }}</span></li>
+                                    <li>Vende te lira: <span>{{ $job->vacancy }}</span></li>
                                     @if(!empty($job->salary))
-                                    <li>Salary: <span>$ {{ $job->salary }}</span></li>
+                                    <li>Paga: <span>$ {{ $job->salary }}</span></li>
                                     @endif
 
-                                    <li>Location: <span>{{ $job->location }}</span></li>
+                                    <li>Vendodhja: <span>{{ $job->location }}</span></li>
 
-                                    <li>Job Nature: <span>{{ $job->jobType->name }}</span></li>
+                                    <li>Tipi i punes: <span>{{ $job->jobType->name }}</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -165,13 +165,13 @@
                     <div class="card shadow border-0 my-4">
                         <div class="job_sumary">
                             <div class="summery_header pb-1 pt-4">
-                                <h3>Company Details</h3>
+                                <h3>Detajet e Kompanise</h3>
                             </div>
                             <div class="job_content pt-3">
                                 <ul>
-                                    <li>Name: <span>{{ $job->company_name }}</span></li>
+                                    <li>Emri: <span>{{ $job->company_name }}</span></li>
                                     @if(!empty($job->company_location))
-                                    <li>Location: <span>{{ $job->company_location }}</span></li>
+                                    <li>Vendodhja: <span>{{ $job->company_location }}</span></li>
                                     @endif
                                     @if(!empty($job->company_website))
                                     <li>Website: <span><a href="{{ $job->company_website }}"> {{ $job->company_website }} </a></span></li>
@@ -186,22 +186,43 @@
         </div>
     </section>
 @endsection
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @section('customJS')
-    <script type="text/javascript">
-        function applyJob(id){
-            if(confirm("Are you sure you want to apply on this job?")){
-                $.ajax({
-                    url: '{{ route("applyJob") }}',
-                    type: 'post',
-                    data: {id:id},
-                    dataType: 'json',
-                    success: function (response) {
-                       window.location.href = "{{ url()->current() }}";
-                    }
-                })
-            }
+    <script type="text/javascript">function applyJob(id) {
+            Swal.fire({
+                title: "Je e sigurtë që dëshiron të aplikosh për këtë punë?",
+                text: "Ky veprim është i pakthyeshëm!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "PO, apliko!",
+                cancelButtonText: "Anulo"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // AJAX request to apply for the job
+                    $.ajax({
+                        url: '{{ route("applyJob") }}',
+                        type: 'post',
+                        data: {id: id},
+                        dataType: 'json',
+                        success: function (response) {
+                            // Redirect after successful application
+                            window.location.href = "{{ url()->current() }}";
+                        },
+                        error: function (xhr, status, error) {
+                            // Handle error if necessary
+                            Swal.fire({
+                                title: "Gabim!",
+                                text: "Ka ndodhur një gabim gjatë aplikimit.",
+                                icon: "error"
+                            });
+                        }
+                    });
+                }
+            });
         }
+
 
         function savedJob(id){
              $.ajax({

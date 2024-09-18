@@ -53,7 +53,7 @@ class AccountController extends Controller
             $user->birthday = $request->birthday;
             $user->password = Hash::make($request->password);
             $user->save();
-            session()->flash('success', 'You have registered successfully.');
+            session()->flash('success', 'Regjistrimi u krye me sukses!');
 
             return response()->json([
                 'status'=> true,
@@ -84,7 +84,7 @@ class AccountController extends Controller
                 return redirect()->route('account.profile');
             }
                 else{
-                    return redirect()->route('account.login')->with('error', 'Either email or password is incorrect!');
+                    return redirect()->route('account.login')->with('error', 'E-maili ose fjalëkalimi janë të pasaktë!');
                 }
         }else{
             return redirect()->route('account.login')
@@ -121,7 +121,7 @@ class AccountController extends Controller
             $user->mobile = $request->mobile;
             $user->designation = $request->designation;
             $user->save();
-            session()->flash('success', 'User information updated successfully! ');
+            session()->flash('success', 'Informacioni i përdoruesit u përditësua me sukses! ');
             return response()->json([
                 'status' => true,
                 'errors' => []
@@ -146,7 +146,7 @@ class AccountController extends Controller
         $validator = Validator::make($request->all(), [
             'image' => ['required', 'image'],
         ],[
-            'image.image' => 'Could not upload image. Please upload a valid profile picture.',
+            'image.image' => 'Nuk mund të ngarkohej imazhi. Ju lutem ngarkoni një foto profili të vlefshme!',
         ]);
 
         if($validator->passes()){
@@ -169,7 +169,7 @@ class AccountController extends Controller
             File::delete(public_path('/profile_photo/'.Auth::user()->image));
 
             User::where('id', $id)->update(['image' => $imageName]);
-            Session::flash('success', 'Profile photo updated successfully.');
+            Session::flash('success', 'Fotoja e profilit u përditësua me sukses!');
 
             return response()->json([
                 'status' => true,
@@ -228,7 +228,7 @@ class AccountController extends Controller
 
             $job->save();
 
-            session()->flash('success', 'Job notification listed successfully!');
+            session()->flash('success', 'Njoftimi për punë u listua me sukses!');
             return response()->json([
                 'status'=>true,
                 'errors'=>[]
@@ -305,7 +305,7 @@ class AccountController extends Controller
 
             $job->save();
 
-            session()->flash('success', 'Job details updated successfully!');
+            session()->flash('success', 'Detajet e punës u përditësuan me sukses!');
             return response()->json([
                 'status'=>true,
                 'errors'=>[]
@@ -324,14 +324,14 @@ class AccountController extends Controller
         ])->first();
 
         if($job == null){
-            session()->flash("error", "Either job deleted or not found.");
+            session()->flash("error", "Njoftimi për punë është fshirë ose nuk u gjet!");
             return response()->json([
                 'status' => true
             ]);
         }
 
         Job::where('id', $request->jobId)->delete();
-        session()->flash("succes", "Job deleted successfully.");
+        session()->flash("succes", "Njoftimi për punë u fshi me sukses!");
         return response()->json([
             'status' => true
         ]);
@@ -353,14 +353,14 @@ class AccountController extends Controller
                                         'user_id' => Auth::user()->id]
                                          )->first();
         if($jobApplication == null){
-            session()->flash("error", "Job application not found.");
+            session()->flash("error", "Aplikimi për punë nuk u gjet!");
             return response()->json([
                 'status' => false
             ]);
         }
 
         JobApplication::find($request->id)->delete();
-        session()->flash("success", "Job application removed successfully.");
+        session()->flash("success", "Aplikimi për punë u hoq me sukses.");
         return response()->json([
             'status' => true
         ]);
@@ -388,14 +388,14 @@ class AccountController extends Controller
                 'user_id' => Auth::user()->id]
         )->first();
         if($savedJob == null){
-            session()->flash("error", "Job not found.");
+            session()->flash("error", "Njoftimi për punë nuk u gjet!");
             return response()->json([
                 'status' => false
             ]);
         }
 
         SavedJob::find($request->id)->delete();
-        session()->flash("success", "Saved job removed successfully.");
+        session()->flash("success", "Puna e ruajtur u hoq me sukses!");
         return response()->json([
             'status' => true
         ]);
@@ -417,7 +417,7 @@ class AccountController extends Controller
 
         }
         if(!Hash::check($request->old_password, Auth::user()->password)){
-            session()->flash('error','Your old password is incorrect');
+            session()->flash('error','Fjalëkalimi juaj i vjetër është i pasaktë!');
             return response()->json([
                 'status' => true
             ]);
@@ -426,7 +426,7 @@ class AccountController extends Controller
         $user = User::find(Auth::user()->id);
         $user->password = Hash::make($request->new_password);
         $user->save();
-        session()->flash('success' , 'Password updated successfully!');
+        session()->flash('success' , 'Fjalëkalimi u përditësua me sukses!');
         return response()->json([
             'status' => true
         ]);
@@ -458,10 +458,10 @@ class AccountController extends Controller
         $mailData =[
             'token' => $token,
             'user' => $user,
-            'subject' => 'You have requested to change your account password'
+            'subject' => 'Ju keni kërkuar të ndryshoni fjalëkalimin e llogarisë tuaj.'
         ];
         Mail::to($request->email)->send(new ResetPasswordEmail($mailData));
-        return redirect()->route('account.forgotPassword')->with('success', 'Reset password link has been sent to your email account.Please check your email inbox to reset password!');
+        return redirect()->route('account.forgotPassword')->with('success', 'Linku për rivendosjen e fjalëkalimit është dërguar në llogarinë tuaj të emailit. Ju lutem kontrolloni llogarinë tuaj të e-mail për të rivendosur fjalëkalimin!');
     }
 
     public function resetPassword($tokenString){
@@ -491,7 +491,7 @@ class AccountController extends Controller
         User::where('email', $token->email)->update([
             'password' => Hash::make($request->new_password)
         ]);
-        return redirect()->route('account.login')->with('success', 'You have successfully changed your password!');
+        return redirect()->route('account.login')->with('success', 'Fjalëkalimin tuaj u ndryshua me sukses!');
 
     }
 }

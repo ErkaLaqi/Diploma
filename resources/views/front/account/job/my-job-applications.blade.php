@@ -7,8 +7,8 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class=" rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Account Settings</li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Faqja Kryesore</a></li>
+                            <li class="breadcrumb-item active">Aplikimet e mia</li>
                         </ol>
                     </nav>
                 </div>
@@ -23,7 +23,7 @@
                         <div class="card-body card-form">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <h3 class="fs-4 mb-1">Jobs Applied</h3>
+                                    <h3 class="fs-4 mb-1">Aplikimet e mia</h3>
                                 </div>
 
                             </div>
@@ -31,11 +31,11 @@
                                 <table class="table ">
                                     <thead class="bg-light">
                                     <tr>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Application Date</th>
-                                        <th scope="col">Applicants</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Titulli</th>
+                                        <th scope="col">Data e aplikimit</th>
+                                        <th scope="col">Nr Aplikimeve</th>
+                                        <th scope="col">Statusi</th>
+                                        <th scope="col">Veprimtarite</th>
                                     </tr>
                                     </thead>
                                     <tbody class="border-0">
@@ -48,12 +48,12 @@
                                                     <div class="info1">{{ $jobApplication->job->jobType->name }} . {{ $jobApplication->job->location }}</div>
                                                 </td>
                                                 <td>{{ \Carbon\Carbon::parse($jobApplication->applied_date)->format('d M, Y') }}</td>
-                                                <td>{{ $jobApplication->job->applications->count() }} Applications</td>
+                                                <td>{{ $jobApplication->job->applications->count() }} Aplikim</td>
                                                 <td>
                                                     @if($jobApplication->job->status == 1)
-                                                        <div class="job-status text-capitalize">Active</div>
+                                                        <div class="job-status text-capitalize">Aktive</div>
                                                     @else
-                                                        <div class="job-status text-capitalize" style="color: red !important;" >Blocked</div>
+                                                        <div class="job-status text-capitalize" style="color: red !important;" >Bllokuar</div>
                                                     @endif
 
                                                 </td>
@@ -63,8 +63,8 @@
                                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                         </button>
                                                         <ul class="dropdown-menu dropdown-menu-end">
-                                                            <li><a class="dropdown-item" href="{{ route('jobDetail', $jobApplication->job_id) }}"> <i class="fa fa-eye" aria-hidden="true"></i> View</a></li>
-                                                            <li><a class="dropdown-item" href="#" onclick="removeJob({{ $jobApplication->id }})"><i class="fa fa-trash" aria-hidden="true"></i> Remove</a></li>
+                                                            <li><a class="dropdown-item" href="{{ route('jobDetail', $jobApplication->job_id) }}"> <i class="fa fa-eye" aria-hidden="true"></i> Detajet</a></li>
+                                                            <li><a class="dropdown-item" href="#" onclick="removeJob({{ $jobApplication->id }})"><i class="fa fa-trash" aria-hidden="true"></i> Fshi</a></li>
                                                         </ul>
                                                     </div>
                                                 </td>
@@ -72,7 +72,7 @@
                                         @endforeach
                                     @else
                                         <tr>
-                                            <td colspan="5" class="text-center">There are no job applications registered.</td>
+                                            <td colspan="5" class="text-center">Nuk ka aplikime pune te regjistruara.</td>
                                         </tr>
                                     @endif
                                     </tbody>

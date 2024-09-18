@@ -8,7 +8,7 @@
         <h5 class="mt-3 pb-0">{{ Auth::user()->name }} {{ Auth::user()->lastname }}</h5>
         <p class="text-muted mb-1 fs-6">{{ Auth::user()->designation }}</p>
         <div class="d-flex justify-content-center mb-2">
-            <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-primary">Change Profile Picture</button>
+            <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-primary">Ndrysho foton e profilit</button>
         </div>
     </div>
 </div>
@@ -16,22 +16,22 @@
     <div class="card-body p-0">
         <ul class="list-group list-group-flush ">
             <li class="list-group-item d-flex justify-content-between p-3">
-                <a href="{{ route('account.profile') }}">Account Settings</a>
+                <a href="{{ route('account.profile') }}">Menaxho llogarine</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <a href="{{ route('account.createJob') }}">Post a Job</a>
+                <a href="{{ route('account.createJob') }}">Listo nje njoftim pune</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <a href="{{ route('account.myJobs') }}">My Jobs</a>
+                <a href="{{ route('account.myJobs') }}">Listimet e mia</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <a href="{{ route('account.myJobApplications') }}">Jobs Applied</a>
+                <a href="{{ route('account.myJobApplications') }}">Aplikimet per pune</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <a href="{{ route('account.fetchSavedJobs') }}">Saved Jobs</a>
+                <a href="{{ route('account.fetchSavedJobs') }}">Njoftimet e preferuara</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <a href="{{ route('account.logout') }}">Logout</a>
+                <a href="{{ route('account.logout') }}">Dil  <i class="fa fa-sign-out" aria-hidden="true"></i></a>
             </li>
         </ul>
     </div>

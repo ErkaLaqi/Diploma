@@ -7,8 +7,8 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class=" rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Account Settings</li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Faqja Kryesore</a></li>
+                            <li class="breadcrumb-item active">Njoftimet e Preferuara</li>
                         </ol>
                     </nav>
                 </div>
@@ -23,7 +23,7 @@
                         <div class="card-body card-form">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <h3 class="fs-4 mb-1">Saved Jobs</h3>
+                                    <h3 class="fs-4 mb-1">Njoftimet e Preferuara</h3>
                                 </div>
 
                             </div>
@@ -31,10 +31,10 @@
                                 <table class="table ">
                                     <thead class="bg-light">
                                     <tr>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Applicants</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Titulli</th>
+                                        <th scope="col">Nr Aplikimeve</th>
+                                        <th scope="col">Statusi</th>
+                                        <th scope="col">Veprimtarite</th>
                                     </tr>
                                     </thead>
                                     <tbody class="border-0">
@@ -46,7 +46,7 @@
                                                     <div class="job-name fw-500">{{ $fetchSavedJob->job->title }}</div>
                                                     <div class="info1">{{ $fetchSavedJob->job->jobType->name }} . {{ $fetchSavedJob->job->location }}</div>
                                                 </td>
-                                                <td>{{ $fetchSavedJob->job->applications->count() }} Applications</td>
+                                                <td>{{ $fetchSavedJob->job->applications->count() }} Aplikime</td>
                                                 <td>
                                                     @if($fetchSavedJob->job->status == 1)
                                                         <div class="job-status text-capitalize">Active</div>
@@ -61,8 +61,8 @@
                                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                         </button>
                                                         <ul class="dropdown-menu dropdown-menu-end">
-                                                            <li><a class="dropdown-item" href="{{ route('jobDetail', $fetchSavedJob->job_id) }}"> <i class="fa fa-eye" aria-hidden="true"></i> View</a></li>
-                                                            <li><a class="dropdown-item" href="#" onclick="removeSavedJob({{ $fetchSavedJob->id }})"><i class="fa fa-trash" aria-hidden="true"></i> Remove</a></li>
+                                                            <li><a class="dropdown-item" href="{{ route('jobDetail', $fetchSavedJob->job_id) }}"> <i class="fa fa-eye" aria-hidden="true"></i> Detajet</a></li>
+                                                            <li><a class="dropdown-item" href="#" onclick="removeSavedJob({{ $fetchSavedJob->id }})"><i class="fa fa-trash" aria-hidden="true"></i> Fshi</a></li>
                                                         </ul>
                                                     </div>
                                                 </td>

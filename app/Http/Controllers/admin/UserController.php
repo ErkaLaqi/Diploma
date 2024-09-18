@@ -41,7 +41,7 @@ class UserController extends Controller
             $user->mobile = $request->mobile;
             $user->designation = $request->designation;
             $user->save();
-            session()->flash('success', 'Your profile information was updated successfully ');
+            session()->flash('success', 'Informacioni i profilit tuaj u përditësua me sukses!');
             return response()->json([
                 'status' => true,
                 'errors' => []
@@ -59,14 +59,14 @@ class UserController extends Controller
         $id = $request->id;
         $user =User::find($id);
         if($user == null){
-            session()->flash('error', 'User not found!');
+            session()->flash('error', 'Përdoruesi nuk u gjet!');
             return response()->json([
                 'status' => false,
             ]);
         }
         $user->delete();
 
-        session()->flash('success', 'User deleted successfully!');
+        session()->flash('success', 'Përdoruesi u fshi me sukses!');
         return response()->json([
             'status' => true,
         ]);

@@ -5,9 +5,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-xl-8">
-                    <h1>Find your dream job</h1>
-                    <p>Thounsands of jobs available.</p>
-                    <div class="banner-btn mt-5"><a href="{{ route('jobs') }}" class="btn btn-primary mb-4 mb-sm-0">Explore Now</a></div>
+                    <h1>Gjej punen qe ke enderruar</h1>
+                    <p>Qindra postime punesimi per ju.</p>
+                    <div class="banner-btn mt-5"><a href="{{ route('jobs') }}" class="btn btn-primary mb-4 mb-sm-0">Eksploro Tani</a></div>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
                         <select name="category" id="category" class="form-control">
-                            <option value="">Select a Category</option>
+                            <option value="">Zgjidh kategorine</option>
                             @if($newCategories->isNotEmpty())
                                 @foreach($newCategories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -38,7 +38,7 @@
                     <div class=" col-md-3 mb-xs-3 mb-sm-3 mb-lg-0">
                         <div class="d-grid gap-2">
                             {{--<a href="jobs.html" class="btn btn-primary btn-block">Search</a>--}}
-                            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"> Search</i></button>
+                            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"> Kerko</i></button>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
 
     <section class="section-2 bg-2 py-5">
         <div class="container">
-            <h2>Popular Categories</h2>
+            <h2>Kategorite me te kerkuara</h2>
             <div class="row pt-5">
 
                 @if($categories->isNotEmpty())
@@ -59,7 +59,7 @@
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
                         <a href="{{ route("jobs").'?category='.$category->id }}"><h4 class="pb-2">{{ $category->name }}</h4></a>
-                        <p class="mb-0"> <span>0</span> Available position</p>
+                        <p class="mb-0"> <span>0</span> Pozicione vakante</p>
                     </div>
                 </div>
                     @endforeach
@@ -122,7 +122,7 @@
 
     <section class="section-3 bg-2 py-5">
         <div class="container">
-            <h2>Latest Jobs</h2>
+            <h2>Njoftimet me te fundit</h2>
             <div class="row pt-5">
                 <div class="job_listing_area">
                     <div class="job_lists">
@@ -157,7 +157,7 @@
                                                 </div>
 
                                                 <div class="d-grid mt-3">
-                                                    <a href="{{ route('jobDetail', $latestJob->id ) }}" class="btn btn-primary btn-lg">Details</a>
+                                                    <a href="{{ route('jobDetail', $latestJob->id ) }}" class="btn btn-primary btn-lg">Detajet</a>
                                                 </div>
                                             </div>
                                         </div>

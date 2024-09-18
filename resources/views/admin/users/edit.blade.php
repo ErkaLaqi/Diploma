@@ -7,9 +7,9 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class=" rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('admin.users')}}">Users</a></li>
-                            <li class="breadcrumb-item active">Edit</li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Privatesia dhe Rregullorja</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.users')}}">Perdoruesit</a></li>
+                            <li class="breadcrumb-item active">Modifiko</li>
                         </ol>
                     </nav>
                 </div>
@@ -23,38 +23,38 @@
                     <div class="card border-0 shadow mb-4">
                         <form action="" method="post" id="userForm" name="userForm">
                             <div class="card-body  p-4">
-                                <h3 class="fs-4 mb-1">Update profile |{{ ucfirst($user->name) }} {{ucfirst($user->lastname)}} </h3>
+                                <h3 class="fs-4 mb-1">Perditeso profilin |{{ ucfirst($user->name) }} {{ucfirst($user->lastname)}} </h3>
                                 <div class="mb-4">
-                                    <label for="name" class="mb-2">Name</label>
-                                    <input type="text" name="name" id="name" {{--placeholder="Enter Name"--}} class="form-control" value="{{ $user->name }}">
+                                    <label for="name" class="mb-2">Emri</label>
+                                    <input type="text" name="name" id="name"  class="form-control" value="{{ $user->name }}">
                                     <p></p>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="lastname" class="mb-2">Lastname</label>
-                                    <input type="text" name="lastname" id="lastname" placeholder="Enter Lastname" class="form-control" value="{{ $user->lastname }}">
+                                    <label for="lastname" class="mb-2">Mbiemri</label>
+                                    <input type="text" name="lastname" id="lastname" class="form-control" value="{{ $user->lastname }}">
                                     <p></p>
                                 </div>
                                 <div class="mb-4">
                                     <label for="email" class="mb-2">Email</label>
-                                    <input type="text" name="email" id="email" placeholder="Enter Email" class="form-control"value="{{ $user->email }}">
+                                    <input type="text" name="email" id="email"  class="form-control"value="{{ $user->email }}">
                                     <p></p>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="birthday" class="mb-2">Birthday</label>
-                                    <input type="date" name="birthday" id="birthday" placeholder="Enter Birthday" class="form-control" value="{{ $user->birthday }}">
+                                    <label for="birthday" class="mb-2">Datelindja</label>
+                                    <input type="date" name="birthday" id="birthday"  class="form-control" value="{{ $user->birthday }}">
                                     <p></p>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="designation" class="mb-2">Designation</label>
-                                    <input type="text" name="designation" id="designation" placeholder="Designation" class="form-control" value="{{ $user->designation }}">
+                                    <label for="designation" class="mb-2">Profesioni</label>
+                                    <input type="text" name="designation" id="designation"  class="form-control" value="{{ $user->designation }}">
                                 </div>
                                 <div class="mb-4">
-                                    <label for="mobile" class="mb-2">Mobile</label>
-                                    <input type="text" name="mobile" id="mobile" placeholder="Mobile" class="form-control" value="{{ $user->mobile }}">
+                                    <label for="mobile" class="mb-2">Nr.Kontakti</label>
+                                    <input type="text" name="mobile" id="mobile"  class="form-control" value="{{ $user->mobile }}">
                                 </div>
                             </div>
                             <div class="card-footer  p-4">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Perditeso</button>
                             </div>
                         </form>
                     </div>

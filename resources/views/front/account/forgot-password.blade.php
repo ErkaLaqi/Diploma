@@ -11,7 +11,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-5">
                     <div class="card shadow border-0 p-5">
-                        <h1 class="h3">Forgot Password?</h1>
+                        <h1 class="h3">Keni harruar fjalëkalimin?</h1>
                         <form action="{{ route('account.processForgotPassword') }}" method="POST">
                             @csrf
                             <div class="mb-3">
@@ -24,12 +24,12 @@
                             </div>
 
                             <div class="justify-content-between d-flex">
-                                <button class="btn btn-primary mt-2">Submit</button>
+                                <button class="btn btn-primary mt-2">Ruaj</button>
                             </div>
                         </form>
                     </div>
                     <div class="mt-4 text-center">
-                        <p>Already have an account? <a  href="{{ route('account.login') }}">Login</a></p>
+                        <p>Ke nje llogari? <a  href="{{ route('account.login') }}">Hyr</a></p>
                     </div>
                 </div>
             </div>

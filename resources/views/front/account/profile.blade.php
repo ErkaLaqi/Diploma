@@ -8,7 +8,6 @@
                     <nav aria-label="breadcrumb" class=" rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Account Settings</li>
                         </ol>
                     </nav>
                 </div>
@@ -22,14 +21,14 @@
                     <div class="card border-0 shadow mb-4">
                         <form action="" method="post" id="userForm" name="userForm">
                         <div class="card-body  p-4">
-                            <h3 class="fs-4 mb-1">My Profile</h3>
+                            <h3 class="fs-4 mb-1">Profili im</h3>
                             <div class="mb-4">
-                                <label for="name" class="mb-2">Name</label>
+                                <label for="name" class="mb-2">Emri</label>
                                 <input type="text" name="name" id="name" {{--placeholder="Enter Name"--}} class="form-control" value="{{ $user->name }}">
                                 <p></p>
                             </div>
                             <div class="mb-4">
-                                <label for="lastname" class="mb-2">Lastname</label>
+                                <label for="lastname" class="mb-2">Mbiemri</label>
                                 <input type="text" name="lastname" id="lastname" placeholder="Enter Lastname" class="form-control" value="{{ $user->lastname }}">
                                 <p></p>
                             </div>
@@ -39,21 +38,21 @@
                                 <p></p>
                             </div>
                             <div class="mb-4">
-                                <label for="birthday" class="mb-2">Birthday</label>
+                                <label for="birthday" class="mb-2">Datelindja</label>
                                 <input type="date" name="birthday" id="birthday" placeholder="Enter Birthday" class="form-control" value="{{ $user->birthday }}">
                                 <p></p>
                             </div>
                             <div class="mb-4">
-                                <label for="designation" class="mb-2">Designation</label>
+                                <label for="designation" class="mb-2">Profesioni</label>
                                 <input type="text" name="designation" id="designation" placeholder="Designation" class="form-control" value="{{ $user->designation }}">
                             </div>
                             <div class="mb-4">
-                                <label for="mobile" class="mb-2">Mobile</label>
+                                <label for="mobile" class="mb-2">Nr.Kontakti</label>
                                 <input type="text" name="mobile" id="mobile" placeholder="Mobile" class="form-control" value="{{ $user->mobile }}">
                             </div>
                         </div>
                         <div class="card-footer  p-4">
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary">Perditeso</button>
                         </div>
                         </form>
                     </div>
@@ -61,25 +60,25 @@
                     <div class="card border-0 shadow mb-4">
                         <form action="" method="post" id="changePasswordForm" name="changePasswordForm">
                         <div class="card-body p-4">
-                            <h3 class="fs-4 mb-1">Change Password</h3>
+                            <h3 class="fs-4 mb-1">Ndrysho Fjalëkalimin</h3>
                             <div class="mb-4">
-                                <label for="old_password" class="mb-2">Old Password*</label>
-                                <input type="password" id="old_password" name="old_password" placeholder="Old Password" class="form-control">
+                                <label for="old_password" class="mb-2">Fjalëkalimi ekzistues*</label>
+                                <input type="password" id="old_password" name="old_password" placeholder="Fjalëkalimi ekzistues" class="form-control">
                                 <p></p>
                             </div>
                             <div class="mb-4">
-                                <label for="new_password" class="mb-2">New Password*</label>
-                                <input type="password" id="new_password" name="new_password" placeholder="New Password" class="form-control">
+                                <label for="new_password" class="mb-2">Fjalëkalimi i ri*</label>
+                                <input type="password" id="new_password" name="new_password" placeholder="Fjalëkalimi i ri" class="form-control">
                                 <p></p>
                             </div>
                             <div class="mb-4">
-                                <label for="confirm_password" class="mb-2">Confirm Password*</label>
-                                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" class="form-control">
+                                <label for="confirm_password" class="mb-2">Konfirmo Fjalëkalimin*</label>
+                                <input type="password" id="confirm_password" name="confirm_password" placeholder="Konfirmo Fjalëkalimin" class="form-control">
                                 <p></p>
                             </div>
                         </div>
                         <div class="card-footer  p-4">
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary">Perditeso</button>
                         </div>
                         </form>
                     </div>

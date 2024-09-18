@@ -7,8 +7,8 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class=" rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Job Applications</li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Privatesia dhe Rregullorja</a></li>
+                            <li class="breadcrumb-item active">Aplikimet per pune</li>
                         </ol>
                     </nav>
                 </div>
@@ -23,18 +23,18 @@
                         <div class="card-body card-form">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <h3 class="fs-4 mb-1">Job Applications List</h3>
+                                    <h3 class="fs-4 mb-1">Lista e Aplikimeve</h3>
                                 </div>
                             </div>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class="info1">
                                     <tr>
-                                        <th scope="col">Job Title</th>
-                                        <th scope="col">Applicants</th>
-                                        <th scope="col">Employer</th>
-                                        <th scope="col">Applied Date</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Titulli Punes</th>
+                                        <th scope="col">Punemarresi</th>
+                                        <th scope="col">Punedhenesi</th>
+                                        <th scope="col">Data e Aplikimit</th>
+                                        <th scope="col"></th>
                                     </tr>
                                     </thead>
                                     <tbody class="border-0">
@@ -80,13 +80,13 @@
     <script type="text/javascript">
         function deleteJobApplication(id){
             Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
+                title: "Deshiron ta konfirmosh?",
+                text: "Nuk mund ta ktheni kete veprim!",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
+                confirmButtonText: "PO, fshi!"
             }).then((result) => {
                 if (result.isConfirmed) {
                     // AJAX request to delete the job
@@ -98,8 +98,8 @@
                         success: function (response) {
                             // Show the success message
                             Swal.fire({
-                                title: "Deleted!",
-                                text: "Job application has been deleted.",
+                                title: "U fshi!",
+                                text: "Listimi u fshi me sukses.",
                                 icon: "success"
                             }).then(() => {
                                 // Redirect after deletion

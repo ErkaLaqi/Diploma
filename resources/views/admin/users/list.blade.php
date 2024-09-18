@@ -7,8 +7,8 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class=" rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Users</li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Privatesia dhe Rregullorja</a></li>
+                            <li class="breadcrumb-item active">Perdoruesit</li>
                         </ol>
                     </nav>
                 </div>
@@ -23,7 +23,7 @@
                         <div class="card-body card-form">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <h3 class="fs-4 mb-1">Users List</h3>
+                                    <h3 class="fs-4 mb-1">Lista e Perdoruesve</h3>
                                 </div>
 
                             </div>
@@ -32,11 +32,11 @@
                                     <thead class="info1">
                                     <tr>
                                         <th scope="col">ID</th>
-                                        <th scope="col">Firstname</th>
-                                        <th scope="col">Lastname</th>
+                                        <th scope="col">Emri</th>
+                                        <th scope="col">Mbiemri</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Mobile No</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Nr Kontakti</th>
+                                        <th scope="col">Veprimtarite</th>
                                     </tr>
                                     </thead>
                                     <tbody class="border-0">
@@ -59,8 +59,8 @@
                                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                         </button>
                                                         <ul class="dropdown-menu dropdown-menu-end">
-                                                            <li><a class="dropdown-item" href=" {{ route('admin.users.edit', $user->id) }} "><i class="fa fa-edit" aria-hidden="true"></i> Edit</a></li>
-                                                            <li><a class="dropdown-item" href="#" onclick="deleteUser({{ $user->id }})"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
+                                                            <li><a class="dropdown-item" href=" {{ route('admin.users.edit', $user->id) }} "><i class="fa fa-edit" aria-hidden="true"></i> Modifiko</a></li>
+                                                            <li><a class="dropdown-item" href="#" onclick="deleteUser({{ $user->id }})"><i class="fa fa-trash" aria-hidden="true"></i> Fshi</a></li>
                                                         </ul>
                                                     </div>
                                                 </td>
@@ -90,13 +90,13 @@
     <script type="text/javascript">
         function deleteUser(id){
             Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
+                title: "Deshiron ta konfirmosh?",
+                text: "Nuk mund ta ktheni kete veprim!",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
+                confirmButtonText: "PO, fshi!"
             }).then((result) => {
                 if (result.isConfirmed) {
                     // AJAX request to delete the job
@@ -108,8 +108,8 @@
                         success: function (response) {
                             // Show the success message
                             Swal.fire({
-                                title: "Deleted!",
-                                text: "User has been deleted.",
+                                title: "U fshi!",
+                                text: "Perdoruesi u fshi me sukses.",
                                 icon: "success"
                             }).then(() => {
                                 // Redirect after deletion

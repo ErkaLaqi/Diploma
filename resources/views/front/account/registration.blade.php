@@ -8,44 +8,44 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-5">
                 <div class="card shadow border-0 p-5">
-                    <h1 class="h3">Register</h1>
+                    <h1 class="h3">Regjistrohu</h1>
                     <form action="" name="registrationForm" id="registrationForm">
                         <div class="mb-3">
-                            <label for="name" class="mb-2">Name</label><span style="color: red !important; display: inline; float: none;">*</span>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name">
+                            <label for="name" class="mb-2">Emri</label><span style="color: red !important; display: inline; float: none;">*</span>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Vendos Emrin">
                             <p></p>
                         </div>
                         <div class="mb-3">
-                            <label for="lastname" class="mb-2">Lastname</label><span style="color: red !important; display: inline; float: none;">*</span>
-                            <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Enter Lastname">
+                            <label for="lastname" class="mb-2">Mbiemri</label><span style="color: red !important; display: inline; float: none;">*</span>
+                            <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Vendos Mbiemri">
                             <p></p>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="mb-2">Email</label><span style="color: red !important; display: inline; float: none;">*</span>
-                            <input type="text" name="email" id="email" class="form-control" placeholder="Enter Email">
+                            <input type="text" name="email" id="email" class="form-control" placeholder="Vendos Email">
                             <p></p>
                         </div>
                         <div class="mb-3">
-                            <label for="birthday" class="mb-2">Birthday</label><span style="color: red !important; display: inline; float: none;">*</span>
-                            <input type="date" name="birthday" id="birthday" class="form-control" placeholder="Enter Birthday">
+                            <label for="birthday" class="mb-2">Datelindja</label><span style="color: red !important; display: inline; float: none;">*</span>
+                            <input type="date" name="birthday" id="birthday" class="form-control" placeholder="Vendos Datelindjen">
                             <p></p>
                         </div>
 
                         <div class="mb-3">
-                            <label for="password" class="mb-2">Password</label><span style="color: red !important; display: inline; float: none;">*</span>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password">
+                            <label for="password" class="mb-2">Fjalëkalimi</label><span style="color: red !important; display: inline; float: none;">*</span>
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Vendos Fjalëkalimin">
                             <p></p>
                         </div>
                         <div class="mb-3">
-                            <label for="confirm_password" class="mb-2">Confirm Password</label><span style="color: red !important; display: inline; float: none;">*</span>
-                            <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm Password">
+                            <label for="confirm_password" class="mb-2">Konfirmo fjalëkalimin</label><span style="color: red !important; display: inline; float: none;">*</span>
+                            <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Konfirmo fjalëkalimin">
                             <p></p>
                         </div>
-                        <button class="btn btn-primary mt-2">Register</button>
+                        <button class="btn btn-primary mt-2">Regjistrohu</button>
                     </form>
                 </div>
                 <div class="mt-4 text-center">
-                    <p>Have an account? <a  href="{{ route('account.login') }}">Login</a></p>
+                    <p>Ke nje llogari? <a  href="{{ route('account.login') }}">Hyr</a></p>
                 </div>
             </div>
         </div>

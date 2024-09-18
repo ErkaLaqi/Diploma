@@ -66,7 +66,7 @@ class JobController extends Controller
 
             $job->save();
 
-            session()->flash('success', 'Job details updated successfully!');
+            session()->flash('success', 'Detajet e punës u përditësuan me sukses!');
             return response()->json([
                 'status'=>true,
                 'errors'=>[]
@@ -84,13 +84,13 @@ class JobController extends Controller
         $job = Job::find($id);
 
         if($job == null){
-            session()->flash('error', 'Either job deleted or not found!');
+            session()->flash('error', 'Njoftimi për punë është fshirë ose nuk u gjet!');
             return response()->json([
                 'status'=>false,
             ]);
         }
         $job->delete();
-        session()->flash('success', 'Job deleted successfully!');
+        session()->flash('success', 'Njoftimi për punë u fshi me sukses!');
         return response()->json([
             'status'=>true,
         ]);

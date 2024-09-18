@@ -2,7 +2,7 @@
 <html class="no-js" lang="en_AU" />
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>CareerVibe | Find Best Jobs</title>
+    <title>Jobler | Gjej pune</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no" />
     <meta name="HandheldFriendly" content="True" />
@@ -18,28 +18,28 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow py-3">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">CareerVibe</a>
+            <a class="navbar-brand" href="{{ route('home') }}">JOBLER</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-0 ms-sm-0 me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('home') }}">Faqja Kryesore</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('jobs') }}">Find Jobs</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('jobs') }}">Gjej Pune</a>
                     </li>
                 </ul>
                 @if(!Auth::check())
-                    <a class="btn btn-outline-primary me-2" href="{{ route('account.registration') }}" type="submit">Sign Up</a>
-                    <a class="btn btn-outline-primary me-2" href="{{ route('account.login') }}" type="submit">Login</a>
+                    <a class="btn btn-outline-primary me-2" href="{{ route('account.registration') }}" type="submit">Regjistrohu</a>
+                    <a class="btn btn-outline-primary me-2" href="{{ route('account.login') }}" type="submit">Hyr</a>
                    @else
                     @if(Auth::user()->role == 'admin')
                         <a class="btn btn-outline-primary me-2" href="{{ route('admin.dashboard') }}" type="submit">Admin</a>
                     @endif
-                    <a class="btn btn-outline-primary me-2" href="{{ route('account.profile') }}" type="submit">Profile</a>
-                    <a class="btn btn-primary" href="{{ route('account.createJob') }}" type="submit">Post a Job</a>
+                    <a class="btn btn-outline-primary me-2" href="{{ route('account.profile') }}" type="submit">Profili im</a>
+                    <a class="btn btn-primary" href="{{ route('account.createJob') }}" type="submit">Listo nje njoftim pune</a>
                 @endif
             </div>
         </div>
@@ -52,19 +52,19 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title pb-0" id="exampleModalLabel">Change Profile Picture</h5>
+                <h5 class="modal-title pb-0" id="exampleModalLabel">Ndrysho foton e profilit</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="profilePicForm" name="profilePicForm" method="post">
                     <div class="mb-3">
-                        <label for="image" class="form-label">Profile Image</label>
+                        <label for="image" class="form-label">Foto Profili</label>
                         <input type="file" class="form-control" id="image"  name="image">
                         <p class="text-danger" id="image-error"></p>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary mx-3">Update</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary mx-3">Ndrysho</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mbyll</button>
                     </div>
 
                 </form>
@@ -75,7 +75,9 @@
 
 <footer class="bg-dark py-3 bg-2">
     <div class="container">
-        <p class="text-center text-white pt-3 fw-bold fs-6">© 2023 xyz company, all right reserved</p>
+        <p class="text-center text-white pt-3 fw-bold fs-6">© 2023 JOBLER company, te gjitha te drejtat e rezervuara.</p>
+        <p class="text-center text-white pt-3 fw-bold fs-6">© 2023 JOBLER company, Nr. kontakti: +355 69 253 1111.</p>
+        <p class="text-center text-white pt-3 fw-bold fs-6">© 2023 JOBLER company, Email: jobler@gmail.com.</p>
     </div>
 </footer>
 <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>

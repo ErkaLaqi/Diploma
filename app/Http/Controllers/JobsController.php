@@ -102,7 +102,7 @@ class JobsController extends Controller
     public function applyJob(Request $request){
         // Check if user is authenticated
         if (!Auth::check()) {
-            $message = 'You must be logged in to apply for a job!';
+            $message = 'Ju duhet të hyni në llogarinë tuaj për të aplikuar për një punë!';
 
             session()->flash('error', $message);
             return response()->json([
@@ -116,7 +116,7 @@ class JobsController extends Controller
 
         // If job is not found in the database
         if($job == null){
-            $message = 'Job does not exist!';
+            $message = 'Njoftimi për punë nuk ekziston!';
 
             session()->flash('error', $message);
             return response()->json([
@@ -128,7 +128,7 @@ class JobsController extends Controller
         // You cannot apply to your own job
         $employer_id = $job->user_id;
         if($employer_id == Auth::user()->id){
-            $message = 'You cannot apply to your own job!';
+            $message = 'Ju nuk mund të aplikoni në punën tuaj!';
 
             session()->flash('error', $message);
             return response()->json([
@@ -144,7 +144,7 @@ class JobsController extends Controller
         ])->count();
 
         if($jobApplicationCount > 0){
-            $message = 'You have already applied to this job!';
+            $message = 'Ju keni aplikuar tashmë për këtë punë!';
 
             session()->flash('error', $message);
             return response()->json([
@@ -172,7 +172,7 @@ class JobsController extends Controller
 
         Mail::to($employer->email)->send(new JobNotificationEmail($mailData));
 
-        $message = 'Your application was sent successfully!';
+        $message = 'Aplikimi juaj u dërgua me sukses!';
         session()->flash('success', $message);
         return response()->json([
             'status' => true,
@@ -185,7 +185,7 @@ class JobsController extends Controller
         $job = Job::find($id);
 
         if($job == null){
-            session()->flash('error', 'Job not found!');
+            session()->flash('error', 'Njoftimi për punë nuk u gjet!');
             return response()->json([
                 'status' => false,
             ]);
@@ -198,7 +198,7 @@ class JobsController extends Controller
         ])->count();
 
         if($savedJobCount > 0) {
-            session()->flash('error', 'You have already saved this job!');
+            session()->flash('error', 'Ju e keni ruajtur tashmë këtë punë!');
             return response()->json([
                 'status' => false,
             ]);
@@ -208,7 +208,7 @@ class JobsController extends Controller
         $savedJob->user_id = Auth::user()->id;
         $savedJob->save();
 
-        session()->flash('success', 'Job saved successfully!');
+        session()->flash('success', 'Puna u ruajt me sukses!');
         return response()->json([
             'status' => true,
         ]);

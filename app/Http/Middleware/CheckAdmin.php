@@ -21,7 +21,7 @@ class CheckAdmin
             return redirect()->route('home');
         }
         if($request->user()->role != 'admin'){
-            session()->flash('error', 'You are not authorized to access this page!');
+            session()->flash('error', 'Ju nuk jeni të autorizuar të aksesoni këtë faqe!');
             return redirect()->route('account.profile');
         }
         return $next($request);
