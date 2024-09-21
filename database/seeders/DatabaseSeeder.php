@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
 
         /*Category::factory(5)->create();
         JobType::factory(5)->create();*/
-        /*Job::factory(55)->create();*/
+        Job::factory(55)->create();
     }
 }

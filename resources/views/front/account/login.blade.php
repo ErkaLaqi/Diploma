@@ -24,7 +24,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="password" class="mb-2">Fjalëkalimi</label><span style="color: red !important; display: inline; float: none;">*</span>
-                            <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Shkruaj Password">
+                            <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Shkruaj fjalëkalimin">
 
                             @error('password')
                             <p class="invalid-feedback">{{ $message }}</p>

@@ -186,41 +186,21 @@
         </div>
     </section>
 @endsection
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 @section('customJS')
-    <script type="text/javascript">function applyJob(id) {
-            Swal.fire({
-                title: "Je e sigurtë që dëshiron të aplikosh për këtë punë?",
-                text: "Ky veprim është i pakthyeshëm!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "PO, apliko!",
-                cancelButtonText: "Anulo"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // AJAX request to apply for the job
-                    $.ajax({
-                        url: '{{ route("applyJob") }}',
-                        type: 'post',
-                        data: {id: id},
-                        dataType: 'json',
-                        success: function (response) {
-                            // Redirect after successful application
-                            window.location.href = "{{ url()->current() }}";
-                        },
-                        error: function (xhr, status, error) {
-                            // Handle error if necessary
-                            Swal.fire({
-                                title: "Gabim!",
-                                text: "Ka ndodhur një gabim gjatë aplikimit.",
-                                icon: "error"
-                            });
-                        }
-                    });
-                }
-            });
+    <script type="text/javascript">
+        function applyJob(id){
+            if(confirm("Je e sigurte se do te aplikosh ne kete pune?")){
+                $.ajax({
+                    url: '{{ route("applyJob") }}',
+                    type: 'post',
+                    data: {id:id},
+                    dataType: 'json',
+                    success: function (response) {
+                        window.location.href = "{{ url()->current() }}";
+                    }
+                })
+            }
         }
 
 

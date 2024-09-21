@@ -44,11 +44,11 @@
                             </div>
                             <div class="mb-4">
                                 <label for="designation" class="mb-2">Profesioni</label>
-                                <input type="text" name="designation" id="designation" placeholder="Designation" class="form-control" value="{{ $user->designation }}">
+                                <input type="text" name="designation" id="designation" placeholder="Profesioni" class="form-control" value="{{ $user->designation }}">
                             </div>
                             <div class="mb-4">
                                 <label for="mobile" class="mb-2">Nr.Kontakti</label>
-                                <input type="text" name="mobile" id="mobile" placeholder="Mobile" class="form-control" value="{{ $user->mobile }}">
+                                <input type="text" name="mobile" id="mobile" placeholder="+355 ........." class="form-control" value="{{ $user->mobile }}">
                             </div>
                         </div>
                         <div class="card-footer  p-4">

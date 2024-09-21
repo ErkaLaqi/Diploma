@@ -55,9 +55,9 @@
                                                     <td>{{ $job->applications->count() }} Aplikime</td>
                                                     <td>
                                                         @if($job->status == 1)
-                                                            <div class="job-status text-capitalize">Aktive</div>
+                                                            <p class="text-success">Aktive</p>
                                                         @else
-                                                            <div class="job-status text-capitalize" style="color: red !important;" >Bllokuar</div>
+                                                            <p class="text-danger">Bllokuar</p>
                                                         @endif
 
                                                     </td>

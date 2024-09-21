@@ -27,10 +27,15 @@ class UserController extends Controller
     public function update($id, Request $request){
 
         $validator = Validator::make($request->all(),[
-            'name' => 'required',
-            'lastname' => 'required',
+            'name' => 'required|string|max:255|regex:/^[a-zA-Z]+$/u',
+            'lastname' => 'required|string|max:255|regex:/^[a-zA-Z]+$/u',
             'email' => 'required|email|unique:users,email,'.$id.',id',
             'birthday' => 'required|date|before:'.now()->subYears(18)->toDateString(),
+        ],[
+            'name.regex' => 'Emri duhet te permbaje vetem shkronja!',
+            'lastname.regex' => 'Mbiemri duhet te permbaje vetem shkronja!',
+            'email.unique' => 'Ky email i perket nje llogarie tjeter!',
+            'birthday.before' => trans('Mosha e lejuar eshte +18!'),
         ]);
         if ($validator->passes()){
             $user = User::find($id);

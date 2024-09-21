@@ -51,9 +51,9 @@
                                                 <td>{{ $jobApplication->job->applications->count() }} Aplikim</td>
                                                 <td>
                                                     @if($jobApplication->job->status == 1)
-                                                        <div class="job-status text-capitalize">Aktive</div>
+                                                        <p class="text-success">Aktive</p>
                                                     @else
-                                                        <div class="job-status text-capitalize" style="color: red !important;" >Bllokuar</div>
+                                                        <p class="text-danger">Bllokuar</p>
                                                     @endif
 
                                                 </td>
@@ -97,13 +97,13 @@
     <script type="text/javascript">
         function removeJob(id){
             Swal.fire({
-                title: "Are you sure you want to remove?",
-                text: "You won't be able to revert this!",
+                title: "Konfirmo nese deshiron ta fshish!",
+                text: "Nuk mund ta kthesh kete veprim!",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, remove it!"
+                confirmButtonText: "Po,fshi!"
             }).then((result) => {
                 if (result.isConfirmed) {
                     // AJAX request to delete the job
@@ -115,8 +115,8 @@
                         success: function (response) {
                             // Show the success message
                             Swal.fire({
-                                title: "Removed!",
-                                text: "Your job application has been removed.",
+                                title: "U fshi!",
+                                text: "Aplikimi juaj u fshi me sukses!",
                                 icon: "success"
                             }).then(() => {
                                 // Redirect after deletion

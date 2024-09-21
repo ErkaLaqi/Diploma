@@ -40,9 +40,15 @@ class AccountController extends Controller
             'password' => ['required', Rules\Password::defaults()], /*confirmed*/
             'confirm_password' => ['required','same:password'],
         ],[
-            'name.regex' => 'Name must contain only letters',
-            'lastname.regex' => 'Lastname must contain only letters',
-            'birthday.before' => trans('You must be at least 18 years old'),
+            'name.required' => 'Kjo fushe duhet plotesuar!',
+            'name.regex' => 'Emri duhet te permbaje vetem shkronja!',
+            'lastname.required' => 'Kjo fushe duhet plotesuar!',
+            'lastname.regex' => 'Mbiemri duhet te permbaje vetem shkronja!',
+            'email.required' => 'Kjo fushe duhet plotesuar!',
+            'email.unique' => 'Ky email i perket nje llogarie tjeter!',
+            'birthday.required' => 'Kjo fushe duhet plotesuar!',
+            'birthday.before' => trans('Mosha e lejuar eshte +18!'),
+            'confirm_password.same' => 'Passwordi nuk perputhet!',
         ]);
         if ($validator->passes()){
 

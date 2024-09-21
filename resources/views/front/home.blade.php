@@ -19,10 +19,10 @@
                <form action="{{ route("jobs") }}" method="GET">
                 <div class="row">
                     <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
-                        <input type="text" class="form-control" name="keyword" id="keyword" placeholder="Keywords">
+                        <input type="text" class="form-control" name="keyword" id="keyword" placeholder="Fjale kyce">
                     </div>
                     <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
-                        <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+                        <input type="text" class="form-control" name="location" id="location" placeholder="Vendodhja">
                     </div>
                     <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
                         <select name="category" id="category" class="form-control">
@@ -59,7 +59,6 @@
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
                         <a href="{{ route("jobs").'?category='.$category->id }}"><h4 class="pb-2">{{ $category->name }}</h4></a>
-                        <p class="mb-0"> <span>0</span> Pozicione vakante</p>
                     </div>
                 </div>
                     @endforeach
@@ -70,7 +69,8 @@
 
     <section class="section-3  py-5">
         <div class="container">
-            <h2>Featured Jobs</h2>
+            <h2>Punet e Promovuara
+            </h2>
             <div class="row pt-5">
                 <div class="job_listing_area">
                     <div class="job_lists">
@@ -106,7 +106,7 @@
                                                 </div>
 
                                                 <div class="d-grid mt-3">
-                                                    <a href="{{ route('jobDetail', $featuredJob->id) }}" class="btn btn-primary btn-lg">Details</a>
+                                                    <a href="{{ route('jobDetail', $featuredJob->id) }}" class="btn btn-primary btn-lg">Detajet</a>
                                                 </div>
                                             </div>
                                         </div>
